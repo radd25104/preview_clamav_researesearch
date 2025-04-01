@@ -23,4 +23,35 @@
 
     ** **Tổng CRC là phương pháp phát hiện lỗi dựa trên nội dung của dữ liệu, trong trường hợp này CRC giúp phân biệt các tệp có cùng tên, kích thước, hoặc vị trí nhưng nội dung khác nhau.**
 
+
+##  Demo
+
+-  Giả sử rằng ta có 1 file `.exe` là 1 file trojan, ta có thể tính được CRC của file trojan đó và ta tạo 1 custom signature từ đó.
+-  Tạo file `.exe` và đẩy 1 lượng data để file đó có dung lượng khoảng 2000 byte, sau đó nén lại và tính CRC của file nén, sau đó nén thêm 1 vài lớp nữa.
+-  [[[file-trojan].zip-nén lần 1].zip-nén lần 2].zip-nén lần 3, dùng `zip` để nén `zip des-file.zip src-file`
+-  CRC ở đây ta tính ở file nén lần đầu. File sau khi nén 1 lần thường sẽ không thay đổi nhiều dung lượng khi nén ở các lần tiếp.
+-  Tính CRC bằng lệnh `unzip -v file-nen-lan-1.zip` ta sẽ biết được `CRC-32` của file `.exe`
+-  Do ở đây chỉ demo cách mà signature hoạt động nên chỉ dùng 1 file trojan làm đích.
+
+-  Tạo file malware giả để test
+
+![Screenshot 2025-04-01 223533](https://github.com/user-attachments/assets/ab10c964-c5fa-41f4-b66d-e8c1dfd6bba8)
+-  Nén lại
+
+![Screenshot 2025-04-01 223604](https://github.com/user-attachments/assets/58f41619-4c9e-41be-a908-6fdd2303a7a9)
+-  Tính CRC của file malware đich để làm dữ liệu cho signature
+
+![Screenshot 2025-04-01 223629](https://github.com/user-attachments/assets/265f718a-28b6-4e2c-b358-f4fb7d72b6ad)
+
+![Screenshot 2025-04-01 223712](https://github.com/user-attachments/assets/a5b259d5-8f38-46ce-a1ad-ab190334bd63)
+
+-  Tạo file signature rồi scan thử
+
+![Screenshot 2025-04-01 224017](https://github.com/user-attachments/assets/13b47c21-417e-4225-8cbc-32a6f75b81ee)
+
+-  Ta có thế thấy rằng Clamav so khớp được dù file malware đích đã được nén mà không cần giải nén file.
+-  Tuy nhiên việc so khớp này chỉ đúng và tối ưu khi được kết hợp cùng các signature khác để tránh xảy ra tình trạng
+
+
+
    
