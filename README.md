@@ -50,7 +50,9 @@
 ![Screenshot 2025-04-01 224017](https://github.com/user-attachments/assets/13b47c21-417e-4225-8cbc-32a6f75b81ee)
 
 -  Ta có thế thấy rằng Clamav so khớp được dù file malware đích đã được nén mà không cần giải nén file.
--  Tuy nhiên việc so khớp này chỉ đúng và tối ưu khi được kết hợp cùng các signature khác để tránh xảy ra tình trạng
+-  Tuy nhiên việc loại signature này chỉ đúng và tối ưu khi được kết hợp cùng các signature bởi một vài lý do sau đây:
+    -  Hoàn toàn phụ thuộc vào metadata, tin tặc có thể thay đổi metadata của file để qua mặt AV dẫn tới phát hiện nhầm (false positive) hoặc bỏ sót (false negative). 
+    -  Dễ gây false positive nếu regex không cụ thể.
 
 
 
