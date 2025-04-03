@@ -33,27 +33,41 @@
 -  Tính CRC bằng lệnh `unzip -v file-nen-lan-1.zip` ta sẽ biết được `CRC-32` của file `.exe`
 -  Do ở đây chỉ demo cách mà signature hoạt động nên chỉ dùng 1 file trojan làm đích.
 
+### Demo 1:
+
 -  Tạo file malware giả để test
+      
+      ![Screenshot 2025-04-01 223533](https://github.com/user-attachments/assets/ab10c964-c5fa-41f4-b66d-e8c1dfd6bba8)
+      -  Nén lại
+      
+      ![Screenshot 2025-04-01 223604](https://github.com/user-attachments/assets/58f41619-4c9e-41be-a908-6fdd2303a7a9)
+      -  Tính CRC của file malware đich để làm dữ liệu cho signature
+      
+      ![Screenshot 2025-04-01 223629](https://github.com/user-attachments/assets/265f718a-28b6-4e2c-b358-f4fb7d72b6ad)
+      
+      ![Screenshot 2025-04-01 223712](https://github.com/user-attachments/assets/a5b259d5-8f38-46ce-a1ad-ab190334bd63)
+      
+      -  Tạo file signature rồi scan thử
+      
+      ![Screenshot 2025-04-01 224017](https://github.com/user-attachments/assets/13b47c21-417e-4225-8cbc-32a6f75b81ee)
 
-![Screenshot 2025-04-01 223533](https://github.com/user-attachments/assets/ab10c964-c5fa-41f4-b66d-e8c1dfd6bba8)
--  Nén lại
+### Demo 2:
 
-![Screenshot 2025-04-01 223604](https://github.com/user-attachments/assets/58f41619-4c9e-41be-a908-6fdd2303a7a9)
--  Tính CRC của file malware đich để làm dữ liệu cho signature
+[sample](https://virusshare.com/file?a1b6107c82a13a881e45ec94e2011f5b2220a2670e110a0319f673075e1aa1f8) [here](https://www.virustotal.com/gui/file/a1b6107c82a13a881e45ec94e2011f5b2220a2670e110a0319f673075e1aa1f8/detection)
 
-![Screenshot 2025-04-01 223629](https://github.com/user-attachments/assets/265f718a-28b6-4e2c-b358-f4fb7d72b6ad)
+-  Cấu trúc file như sau file a được nén vào file b.zip, file b.zip tiếp tục được nén vào file c.zip, giả định rằng ta biết 1 con virus có định dạng file nén tương tự với file b.zip. 
+    -  1. Tạo file nén
+       ![Screenshot 2025-04-03 113259](https://github.com/user-attachments/assets/cd1ba522-6a8b-46ca-b868-1bd4fdee3fa3)
+    -  2. Tạo file signature
+       ![Screenshot 2025-04-03 113324](https://github.com/user-attachments/assets/c3f27b28-45f6-4c1d-8c75-654be7156c9d)
 
-![Screenshot 2025-04-01 223712](https://github.com/user-attachments/assets/a5b259d5-8f38-46ce-a1ad-ab190334bd63)
 
--  Tạo file signature rồi scan thử
-
-![Screenshot 2025-04-01 224017](https://github.com/user-attachments/assets/13b47c21-417e-4225-8cbc-32a6f75b81ee)
-
+#
 -  Ta có thế thấy rằng Clamav so khớp được dù file malware đích đã được nén mà không cần giải nén file.
 -  Tuy nhiên việc loại signature này chỉ đúng và tối ưu khi được kết hợp cùng các signature bởi một vài lý do sau đây:
     -  Hoàn toàn phụ thuộc vào metadata, tin tặc có thể thay đổi metadata của file để qua mặt AV dẫn tới phát hiện nhầm (false positive) hoặc bỏ sót (false negative). 
     -  Dễ gây false positive nếu regex không cụ thể.
-
+-  ==> Tóm lại, signature này dùng để detect cơ bản các tệp nén nghi ngờ dựa trên mẫu virus trước đó, nhằm mục đích lọc nhanh và đánh dấu để tiến hành phân tích kỹ hơn. Nó không phải công cụ toàn diện, mà là một lớp phát hiện ban đầu trong chiến lược quét virus của ClamAV.
 
 
    
