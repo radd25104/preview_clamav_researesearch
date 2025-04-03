@@ -58,7 +58,7 @@
 -  Cấu trúc file như sau file a được nén vào file b.zip, file b.zip tiếp tục được nén vào file c.zip, giả định rằng ta biết 1 con virus có định dạng file nén tương tự với file b.zip. 
     -  1. Tạo file nén
        ![Screenshot 2025-04-03 113259](https://github.com/user-attachments/assets/cd1ba522-6a8b-46ca-b868-1bd4fdee3fa3)
-    -  2. Tạo file signature
+    -  2. Tạo file signature, sau đó chuyển vào `/var/lib/clamav`
        ![Screenshot 2025-04-03 113324](https://github.com/user-attachments/assets/c3f27b28-45f6-4c1d-8c75-654be7156c9d)
 
 
