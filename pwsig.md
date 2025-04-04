@@ -51,5 +51,11 @@ Và với tính năng này Clamav có thể giúp ta cho phép thử các mật 
 
       ![Screenshot 2025-04-04 234823](https://github.com/user-attachments/assets/f2399f2a-7f4d-4bc0-8ce3-cfb0fa3959fc)
 
+  -  Còn đây là kết quả nếu ta không có password của file ở trong database signature
 
+     ![Screenshot 2025-04-05 004947](https://github.com/user-attachments/assets/62d671e4-f1b2-4cb7-93fa-4c3d2dd5a724)
+
+     ![Screenshot 2025-04-05 004959](https://github.com/user-attachments/assets/aab551a3-f55f-4f2d-bd30-46382ffb4e98)
+
+     ![Screenshot 2025-04-05 005100](https://github.com/user-attachments/assets/4ef9a330-34fc-41b2-bd79-7760ad4c570b)
 
