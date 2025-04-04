@@ -32,3 +32,24 @@ Và với tính năng này Clamav có thể giúp ta cho phép thử các mật 
 
 
 ## Demo
+
+  -  Trước tiên ta tạo file để làm mẫu thử, nén file lại với mật khẩu là `infected`. Nội dung file sẽ chứa 1 string đặc biệt để giả làm file PE như dưới hình.
+
+      ![Screenshot 2025-04-05 000547](https://github.com/user-attachments/assets/4c30b66b-2e6e-440d-94d8-9a344e09f1fe)
+      ![Screenshot 2025-04-05 000212](https://github.com/user-attachments/assets/fb048e2e-c723-468d-b5cc-1466cdbcc593)
+
+  -  Tạo file signature `.pwdb` và 1 file `.yara` để kết hợp detect file. Chuyển 2 file sang database signature.
+      ![Screenshot 2025-04-05 000139](https://github.com/user-attachments/assets/8a0add3a-37c6-4c3d-a05a-60ab352d3cd8)
+     
+  -  Quét file và lưu lại log để xem clamav đã làm gì với file `.zip` có password kia.
+
+      ![Screenshot 2025-04-05 001308](https://github.com/user-attachments/assets/f197a25c-5306-4533-9c05-c6f39022b0e8)
+
+      ![Screenshot 2025-04-05 000347](https://github.com/user-attachments/assets/14caeea7-8774-427f-a157-53a822f1cb76)
+
+      Ta có thể thấy rằng clamav load signature rồi dùng password để thử mở file rồi quét mà không làm file bị giải nén.
+
+      ![Screenshot 2025-04-04 234823](https://github.com/user-attachments/assets/f2399f2a-7f4d-4bc0-8ce3-cfb0fa3959fc)
+
+
+
