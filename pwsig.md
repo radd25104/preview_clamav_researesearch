@@ -10,8 +10,8 @@ Và với tính năng này Clamav có thể giúp ta cho phép thử các mật 
 
 -   Hạn chế: 
     -  Tuy nhiên tính năng này chỉ là bước đệm để phân tích sâu hơn khi kết hợp với các loại signature khác.
-    -  Chỉ hỗ trợ .zip với PKWARE, không phải các định dạng nén hiện đại hơn (như AES hay .7z).
-    -  Tính thử nghiệm: Đây là tính năng experimental từ ClamAV 0.99, nên không được tích hợp sâu hay sử dụng rộng rãi trong các cơ sở dữ liệu chính thức.
+    -  Chỉ hỗ trợ `.zip` với `PKWARE`, không phải các định dạng nén hiện đại hơn (như `AES` hay `.7z`).
+    -  Tính thử nghiệm: Đây là tính năng mang tính thử nghiệm từ `ClamAV 0.99`, nên không được tích hợp sâu hay sử dụng rộng rãi trong các cơ sở dữ liệu chính thức.
  
 
 **The signature format:**
@@ -20,14 +20,14 @@ Và với tính năng này Clamav có thể giúp ta cho phép thử các mật 
 ```
 
 Định dạng signature gồm 4 trường, ngăn cách bởi dấu `;`
-  -  SignatureName: Tên hiển thị khi mật khẩu thành công (dùng trong debug).
-  -  TargetDescriptionBlock: Thông tin về engine và tệp đích, dạng cặp Arg:Val phân tách bằng dấu phẩy.
-      -  Engine:X-Y: Mức độ chức năng engine yêu cầu (xem tài liệu FLEVEL).
-      -  Container:CL_TYPE_*: Loại tệp lưu trữ áp dụng.
-  -  PWStorageType: Cách mật khẩu được lưu trữ:
-      -  0 = văn bản rõ (cleartext).
-      -  1 = mã hóa hex.
-  -  Password: Giá trị mật khẩu thực tế để thử.
+  -  `SignatureName`: Tên hiển thị khi mật khẩu thành công (dùng trong debug).
+  -  `TargetDescriptionBlock`: Thông tin về engine và tệp đích, dạng cặp Arg:Val phân tách bằng dấu phẩy.
+      -  `Engine:X-Y`: Mức độ chức năng engine yêu cầu (xem tài liệu FLEVEL).
+      -  `Container:CL_TYPE_*`: Loại tệp lưu trữ áp dụng.
+  -  `PWStorageType`: Cách mật khẩu được lưu trữ:
+      -  `0` = văn bản rõ (cleartext).
+      -  `1` = mã hóa hex.
+  -  `Password`: Giá trị mật khẩu thực tế để thử.
   -  Các signature mật khẩu được lưu trong các tệp có đuôi `.pwdb`.
 
 
