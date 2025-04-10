@@ -9,7 +9,7 @@ Và với tính năng này Clamav có thể giúp ta cho phép thử các mật 
 
 
 -   Hạn chế: 
-    -  Tuy nhiên tính năng này chỉ là bước đệm để phân tích sâu hơn khi kết hợp với các loại signature khác.
+    -  Tuy nhiên tính năng này chỉ là bước đệm để phân tích sâu hơn khi kết hợp với các loại signature khác. Chỉ dùng để mở khóa file nén có đặt mật khẩu.
     -  Chỉ hỗ trợ `.zip` với `PKWARE`, không phải các định dạng nén hiện đại hơn (như `AES` hay `.7z`).
     -  Tính thử nghiệm: Đây là tính năng mang tính thử nghiệm từ `ClamAV 0.99`, nên không được tích hợp sâu hay sử dụng rộng rãi trong các cơ sở dữ liệu chính thức.
  
@@ -39,6 +39,7 @@ Và với tính năng này Clamav có thể giúp ta cho phép thử các mật 
       ![Screenshot 2025-04-05 000212](https://github.com/user-attachments/assets/fb048e2e-c723-468d-b5cc-1466cdbcc593)
 
   -  Tạo file signature `.pwdb` và 1 file `.yara` để kết hợp detect file. Chuyển 2 file sang database signature.
+  -  File `.yara` ở đây dùng để kiểm tra xem rằng signature có thể mở file `.zip` hay không. Nếu mở được `yara` sẽ quét file bên trong file nén `.zip`.
       ![Screenshot 2025-04-05 000139](https://github.com/user-attachments/assets/8a0add3a-37c6-4c3d-a05a-60ab352d3cd8)
      
   -  Quét file và lưu lại log để xem clamav đã làm gì với file `.zip` có password kia.
